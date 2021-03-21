@@ -44,7 +44,7 @@ function getWeather(input, key) {
 
 // DISPLAY WEATHER FUNCTION
 function displayWeather(e) {
-  output.innerHTML = `City of ${e.city}, ${e.country}. ${e.description}. Humidity is at ${e.humidity}%. Temperature is ${e.temperature.value}°C and feels like ${e.temperature.feelsLike}°C.`;
+  output.innerHTML = `${e.city}, ${e.country}. ${e.description}. Humidity is at ${e.humidity}%. Temperature is ${e.temperature.value}°C and feels like ${e.temperature.feelsLike}°C.`;
 }
 
 // ON ERROR FUNCTION
