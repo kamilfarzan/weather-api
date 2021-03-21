@@ -39,7 +39,7 @@ function getWeather(input, key) {
       weather.country = data.sys.country;
       displayWeather(weather);
     })
-    .catch(console.error("Error?"), displayError());
+    .catch(console.error("Maybe Error? If not, ignore..."), displayError());
 }
 
 // DISPLAY WEATHER FUNCTION
