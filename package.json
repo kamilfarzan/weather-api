@@ -1,12 +1,12 @@
 {
   "name": "weather-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "simple weather api",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-  "author": "",
+  "author": "kamo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

@@ -25,6 +25,6 @@
 //       displayWeather();
 //     });
 // }
-`if (output.value !== null || output.value !== undefined) {
-  window.reload();
-}`;
+// if (output.value !== null || output.value !== undefined) {
+//   window.reload();
+// };
