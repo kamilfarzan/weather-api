@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search">
+            <label for="city">City: </label> 
+            <input type="text" name="city" id = "city" class="inputkardo" placeholder="Enter city name">
+
+            <label for="unit">Unit:</label>
+            <!-- <input type="text" name="unit" id = "unit" class="inputkardo"> -->
+            <select name="unit" id="unit" class="inputkardo">
+                <option value="metric">Celsius</option>
+                <option value="imperial">Farenheit</option>            
+                <option value="standard">kelvin</option>
+            </select>
+
+            <button type="button" class="enterbtn">Search</button>
+        </div>               
+
+        <div class="data"></div>
+        <p class="output"></p>
+        
+    </div>
+    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+    <script src="script.js"></script>        
+</body>
+</html>
