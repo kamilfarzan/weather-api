@@ -28,3 +28,26 @@
 // if (output.value !== null || output.value !== undefined) {
 //   window.reload();
 // };
+
+// OLD FETCH KEY THING
+// fetch("/resources/key.txt")
+//   .then((e) => e.text())
+//   .then((data) => {
+//     key.pass = data;
+//   });
+
+// OLD FETCH API
+// fetch(api)
+// .then((response) => {
+//   let data = await response.json();
+//   return data;
+// })
+// .then((data) => {
+//   weather.city = data.name;
+//   weather.description = data.weather[0].main;
+//   weather.temperature.value = Math.floor(data.main.temp);
+//   weather.temperature.feelsLike = data.main.feels_like;
+//   weather.humidity = data.main.humidity;
+//   weather.country = data.sys.country;
+//   displayWeather(weather);
+// })
