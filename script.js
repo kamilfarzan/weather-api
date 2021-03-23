@@ -15,7 +15,12 @@ const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
 const dateElement = document.querySelector("#date");
 
+<<<<<<< HEAD
 let icons = new Skycons({ color: "#E4D8D8" });
+=======
+let icons = new Skycons({color: '#E4D8D8'});
+
+>>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
 icons.set("icon", "clear-day");
 icons.play();
 
@@ -136,7 +141,11 @@ function currentDateFormat(date) {
 // SET DATE
 
 const dateToday = currentDateFormat(date);
+<<<<<<< HEAD
 dateElement.innerHTML = `${dateToday}`;
+=======
+dateElement.innerHTML = `${dateToday}`
+>>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
 
 // DISPLAY WEATHER TO UI
 
@@ -165,7 +174,11 @@ function displayWeather(e) {
   windspeedElement.innerHTML = `${e.windSpeed}${windSpeedUnit}`;
   sunrise.innerHTML = `${e.sunrise}`;
   sunset.innerHTML = `${e.sunset}`;
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   displaySkycons(weather.icon);
 }
 
@@ -187,7 +200,11 @@ function displayError() {
 // SKYCONS
 
 function displaySkycons(f) {
+<<<<<<< HEAD
   let icons = new Skycons({ color: "#E4D8D8" });
+=======
+  let icons = new Skycons({color: '#E4D8D8'});
+>>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   sortSkycons(f);
   icons.set("icon", weather.out);
   icons.play();
