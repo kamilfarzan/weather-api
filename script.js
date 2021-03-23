@@ -15,7 +15,7 @@ const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
 const dateElement = document.querySelector("#date");
 
-let icons = new Skycons();
+let icons = new Skycons({color: '#E4D8D8'});
 
 icons.set("icon", "clear-day");
 icons.play();
@@ -154,6 +154,7 @@ function currentDateFormat(date) {
 }
 
 const dateToday = currentDateFormat(date);
+dateElement.innerHTML = `${dateToday}`
 
 // DISPLAY WEATHER TO UI
 
@@ -167,7 +168,7 @@ function displayWeather(e) {
     windSpeedUnit = "m/s";
   } else if (unit.value == "Imperial") {
     tempUnitDisplay = "°F";
-    windSpeedUnit = " miles/hour";
+    windSpeedUnit = " mph";
   } else if (unit.value == "Standard") {
     tempUnitDisplay = "K";
     windSpeedUnit = "m/s";
@@ -181,29 +182,29 @@ function displayWeather(e) {
   windspeedElement.innerHTML = `${e.windSpeed}${windSpeedUnit}`;
   sunrise.innerHTML = `${e.sunrise}`;
   sunset.innerHTML = `${e.sunset}`;
-  dateElement.innerHTML = `${dateToday}`;
-
-  displaySkycons();
+  
+  displaySkycons(weather.icon);
 }
 
 // ERROR
 function displayError() {
   status.innerHTML = `Error 405`;
-  locationElement.innerHTML = `Bruh`;
+  locationElement.innerHTML = `Location not found`;
   temperature.innerHTML = `TBD`;
   feelsLike.innerHTML = `TBD`;
   humidity.innerHTML = `TBD`;
   windspeedElement.innerHTML = `TBD`;
   sunrise.innerHTML = `TBD`;
   sunset.innerHTML = `TBD`;
-  dateElement.innerHTML = `TBD`;
+  dateElement.innerHTML = `${dateToday}`;
+  displaySkycons("Error");
 }
 
 // SKYCONS
 
-function displaySkycons() {
-  let icons = new Skycons();
-  sortSkycons(weather.icon);
+function displaySkycons(f) {
+  let icons = new Skycons({color: '#E4D8D8'});
+  sortSkycons(f);
   icons.set("icon", weather.out);
   icons.play();
 }
@@ -245,5 +246,7 @@ function sortSkycons(e) {
     case "50n":
       weather.out = "fog";
       break;
+    case "Error":
+      weather.out = "wind";
   }
 }
