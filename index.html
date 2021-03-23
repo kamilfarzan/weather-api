@@ -18,9 +18,10 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"
     ></script>
     <script defer src="./script.js"></script>
-    <title>Weather</title>
+    <title>Weather App</title>
   </head>
   <body>
+    <div class="cover"></div>
     <div class="container">
       <div class="header">
         <div class="icon-container">
@@ -32,6 +33,9 @@
         <div class="info">
           <div id="status" class="status">Enter A Location</div>
           <div id="location" class="location">To Find The Weather</div>
+          <div class="detail">
+            <div class="value" id="date">TBD</div>
+          </div>
         </div>
 
         <div class="detail-section">
@@ -59,10 +63,6 @@
             <div class="title">Sunset</div>
             <div class="value" id="sunset">TBD</div>
           </div>
-          <div class="detail">
-            <div class="title">Date</div>
-            <div class="value" id="date">TBD</div>
-          </div>
         </div>
         <form>
           <div class="search-container">
@@ -73,7 +73,7 @@
               placeholder="Enter Location"
             /><select id="unit">
               <option value="Metric">Celsius</option>
-              <option value="Imperial">Farenheit</option>
+              <option value="Imperial">Fahrenhiet</option>
               <option value="Standard">Kelvin</option>
             </select>
           </div>

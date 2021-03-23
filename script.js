@@ -15,23 +15,25 @@ const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
 const dateElement = document.querySelector("#date");
 
-let icons = new Skycons();
-
+let icons = new Skycons({ color: "#E4D8D8" });
 icons.set("icon", "clear-day");
 icons.play();
+
+// BTN EVENT LISTENER
 
 btn.addEventListener(`click`, (e) => {
   e.preventDefault();
   getWeather(city.value, unit.value, key);
 });
 
+// FETCH FROM API
+
 async function getWeather(city, unit, key) {
   let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${key}`;
-  //   console.log(api);
   try {
     let response = await fetch(api);
     let data = await response.json();
-    // console.log(data);
+
     weather.temperature = Math.floor(data.main.temp);
     weather.description = data.weather[0].main;
     weather.icon = data.weather[0].icon;
@@ -42,24 +44,8 @@ async function getWeather(city, unit, key) {
     weather.windSpeed = data.wind.speed;
     weather.sunrise = convertUNIX(data.sys.sunrise);
     weather.sunset = convertUNIX(data.sys.sunset);
-
-    // let currentDate = Math.round(date.getTime() / 1000);
-
-    // if (currentDate > data.sys.sunrise && currentDate < data.sys.sunset) {
-    //   weather.image = "sun";
-    // } else if (
-    //   currentDate < data.sys.sunrise ||
-    //   currentDate > data.sys.sunset
-    // ) {
-    //   weather.image = "moon";
-    // }
-
-    console.log(weather);
-    console.log(data);
-
     displayWeather(weather);
   } catch (e) {
-    console.log(e);
     displayError();
   }
 }
@@ -70,10 +56,7 @@ function convertUNIX(timestamp) {
   let date = new Date(timestamp * 1000);
   let hours = date.getHours();
   let minutes = "0" + date.getMinutes();
-  let seconds = "0" + date.getSeconds();
-  let formattedTime =
-    hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-
+  let formattedTime = hours + ":" + minutes.substr(-2);
   return formattedTime;
 }
 
@@ -82,8 +65,6 @@ function convertUNIX(timestamp) {
 function currentDateFormat(date) {
   const cDay = date.getDay();
   const cDate = date.getDate();
-  // const cHours = date.getHours();
-  // const cMinutes = date.getMinutes();
   const cMonth = date.getMonth();
   let day = "";
   let month = "";
@@ -148,17 +129,20 @@ function currentDateFormat(date) {
       month = "Dec";
       break;
   }
-
   const compiledDate = `${day}, ${cDate} ${month}`;
   return compiledDate;
 }
 
+// SET DATE
+
 const dateToday = currentDateFormat(date);
+dateElement.innerHTML = `${dateToday}`;
 
 // DISPLAY WEATHER TO UI
 
 function displayWeather(e) {
   // DISPLAY PREFERRED UNIT
+
   let tempUnitDisplay = "";
   let windSpeedUnit = "";
 
@@ -167,7 +151,7 @@ function displayWeather(e) {
     windSpeedUnit = "m/s";
   } else if (unit.value == "Imperial") {
     tempUnitDisplay = "°F";
-    windSpeedUnit = " miles/hour";
+    windSpeedUnit = " mph";
   } else if (unit.value == "Standard") {
     tempUnitDisplay = "K";
     windSpeedUnit = "m/s";
@@ -181,35 +165,37 @@ function displayWeather(e) {
   windspeedElement.innerHTML = `${e.windSpeed}${windSpeedUnit}`;
   sunrise.innerHTML = `${e.sunrise}`;
   sunset.innerHTML = `${e.sunset}`;
-  dateElement.innerHTML = `${dateToday}`;
 
-  displaySkycons();
+  displaySkycons(weather.icon);
 }
 
 // ERROR
+
 function displayError() {
   status.innerHTML = `Error 405`;
-  locationElement.innerHTML = `Bruh`;
+  locationElement.innerHTML = `Location not found`;
   temperature.innerHTML = `TBD`;
   feelsLike.innerHTML = `TBD`;
   humidity.innerHTML = `TBD`;
   windspeedElement.innerHTML = `TBD`;
   sunrise.innerHTML = `TBD`;
   sunset.innerHTML = `TBD`;
-  dateElement.innerHTML = `TBD`;
+  dateElement.innerHTML = `${dateToday}`;
+  displaySkycons("Error");
 }
 
 // SKYCONS
 
-function displaySkycons() {
-  let icons = new Skycons();
-  sortSkycons(weather.icon);
+function displaySkycons(f) {
+  let icons = new Skycons({ color: "#E4D8D8" });
+  sortSkycons(f);
   icons.set("icon", weather.out);
   icons.play();
 }
 
+// CONVERT OPENWEATHERICONS TO SKYCONS
+
 function sortSkycons(e) {
-  console.log(e);
   switch (e) {
     case "01d":
       weather.out = "clear-day";
@@ -245,5 +231,7 @@ function sortSkycons(e) {
     case "50n":
       weather.out = "fog";
       break;
+    case "Error":
+      weather.out = "wind";
   }
 }
