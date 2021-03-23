@@ -17,11 +17,7 @@ body {
   min-height: 100vh;
 }
 
-<<<<<<< HEAD
 .cover {
-=======
-.cover{
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   background-color: rgba(34, 34, 34, 0.3);
   position: absolute;
   height: 100%;
@@ -30,7 +26,6 @@ body {
 }
 
 .container {
-<<<<<<< HEAD
   width: 70%;
   color: rgb(226, 221, 221);
   border-radius: 5px;
@@ -47,35 +42,12 @@ body {
 }
 
 .header {
-=======
-  /* max-width: 70%; */
-  width: 70%;
-  /* background-color: white; */
-  color: rgb(226, 221, 221);
-  /* color: white; */
-  /* box-shadow: 0 10px 5px white; */
-  border-radius: 5px;
-  z-index: 4;
-}
-
-.content {
-  /* padding: 20px; */
-  margin-top: 7vh;
-}
-
-.header {
-  /* background-color: white; */
-  /* height: 120px; */
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   display: flex;
   justify-content: center;
   align-items: flex;
   margin-top: -5%;
-<<<<<<< HEAD
   /* background-color: white; */
   /* height: 120px; */
-=======
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   /* border-top-right-radius: 5px; */
   /* border-top-left-radius: 5px; */
 }
@@ -84,10 +56,6 @@ body {
   position: relative;
   top: 40px;
   padding: 20px;
-<<<<<<< HEAD
-=======
-  /* background-color: white; */
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -120,11 +88,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 4.5%;
-<<<<<<< HEAD
   margin-bottom: 2.5%;
-=======
-  margin-bottom: 2.5%
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
 }
 
 .detail {
@@ -154,10 +118,7 @@ body {
 }
 
 .search {
-<<<<<<< HEAD
   font-weight: 600;
-=======
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
   font-size: 3vh;
   outline: none;
   border: 0;
@@ -169,7 +130,6 @@ body {
 }
 
 #unit {
-<<<<<<< HEAD
   font-weight: 500;
   font-size: 2vh;
   outline: none;
@@ -186,19 +146,6 @@ body {
 option {
   background-color: rgb(238, 231, 231);
   border-radius: 5px;
-=======
-  /* margin-top: 20px; */
-  margin-left: 2%;
-  height: 6vh;
-  border: 0;
-  border-radius: 5px;
-  width: 25%;
-  padding: 0 1.5%;
-}
-
-option {  
-  background-color: rgb(238, 231, 231);
->>>>>>> 07425a89e018be08d84ef7344feeecf7631fddeb
 }
 
 #button {
